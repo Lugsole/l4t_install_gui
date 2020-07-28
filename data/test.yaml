@@ -1,0 +1,53 @@
+- title: ls
+  subtitle: List folders
+  type: group
+  subs:
+    - title: ls
+      type: item
+      commands:
+        - ls
+    - title: ls /
+      type: item
+      commands:
+        - ls /
+- title: Power Managment
+  subtitle: Shutdown and restart
+  type: group
+  subs:
+    - title: Shutdown
+      type: item
+      commands:
+        - shutdown -h now
+    - title: Restart
+      type: item
+      commands:
+        - reboot
+- title: Update your programs
+  subtitle: download and install updates from the repos (check this at least once daily!)
+  type: item
+  commands:
+    - pkexec apt update
+    - pkexec apt upgrade -y
+    - pkexec apt autoremove -y
+    - pkexec flatpak update -y
+- title: Dolphin
+  subtitle: Gamecube and Wii emulator, latest development version
+  type: group
+  subs:
+    - title: Install
+      type: item
+      commands:
+        - pkexec apt install software-properties-common
+        - pkexec apt update
+        - pkexec apt install dolphin-emu-master
+    - title: Config
+      type: item
+      commands:
+        - echo "Not implemented yet"
+- title: Moon Lite
+  type: item
+  commands:
+    - echo "deb https://dl.bintray.com/moonlight-stream/moonlight-l4t bionic main" | pkexec tee /etc/apt/sources.list.d/moonlight-l4t.list
+    - pkexec apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 379CE192D401AB61
+    - pkexec apt-get update
+    - pkexec apt install moonlight-qt
