@@ -41,15 +41,23 @@ import os
 
 Handy.init()
 
-@Gtk.Template(resource_path='/org/example/App/window.ui')
 class L4tInstallGuiWindow(Gtk.ApplicationWindow):
     __gtype_name__ = 'L4tInstallGuiWindow'
 
-    #label = Gtk.Template.Child()
-    book_list = Gtk.Template.Child()
-
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        self.connect("destroy", Gtk.main_quit)
+        self.show_all()
+        Scroll = Gtk.ScrolledWindow()
+        self.add(Scroll)
+        Scroll.show()
+        Scroll.set_policy(Gtk.PolicyType.NEVER,Gtk.PolicyType.AUTOMATIC)
+        vp = Gtk.Viewport()
+        Scroll.add(vp)
+        vp.show()
+        self.book_list = Gtk.ListBox()
+        vp.add(self.book_list)
+        self.book_list.show()
         yaml_file_name = os.path.join(pkgdatadir, "test.yaml")
         print(yaml_file_name)
         with open(yaml_file_name) as file:
