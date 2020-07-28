@@ -3,5 +3,5 @@
 # Build
 `meson --prefix /usr/local . _build`
 `ninja -C _build/`
-#install
+# install
 `ninja -C _build/ install`
