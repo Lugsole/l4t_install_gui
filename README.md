@@ -8,8 +8,8 @@
 
 ```sh
 sudo apt install -y python3-gi python3-gi-cairo gir1.2-gtk-3.0 python3-pip ninja-build
-sudo pip3 install pyyaml
-sudo pip3 install meson
+pip3 install pyyaml
+pip3 install meson
 ```
 
 ## Build

@@ -41,12 +41,8 @@ import os
 
 Handy.init()
 
-#@Gtk.Template(resource_path='/org/example/App/window.ui')
 class L4tInstallGuiWindow(Gtk.ApplicationWindow):
     __gtype_name__ = 'L4tInstallGuiWindow'
-
-    #label = Gtk.Template.Child()
-    #book_list = Gtk.Template.Child()
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
