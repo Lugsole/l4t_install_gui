@@ -10,6 +10,19 @@
       type: item
       commands:
         - ls /
+- title: Install Retroarch Cores 
+  Subtitle: I dunno
+  type: item
+  commands: 
+    - pkexec add-apt-repository ppa:libretro/testing
+    - pkexec apt-get update
+    - pkexec apt-get install libretro*
+- title: Overclock Test
+  Subtitle: Overclock to different frequences (Needed for better emulation)
+  type: item
+  commands: 
+    - echo 1 | sudo tee /sys/kernel/tegra_cpufreq/overclock
+    - echo 2091000  | sudo tee /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq        
 - title: Power Managment
   subtitle: Shutdown and restart
   type: group
