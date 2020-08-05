@@ -30,12 +30,11 @@ import gi
 
 gi.require_version('Gtk', '3.0')
 from gi.repository import GObject, GLib, Gtk, Gio
-gi.require_version('Handy', '0.0')
+gi.require_version('Handy', '1')
 from gi.repository import Handy
 import yaml
 from .config import pkgdatadir
-from .MenuItem import menuItem
-from .MenuGroup import menuGroup
+from .GUIMenuPart import toGUI
 from .GenMenu import genMenu
 import os
 
@@ -55,8 +54,23 @@ class L4tInstallGuiWindow(Gtk.ApplicationWindow):
         vp = Gtk.Viewport()
         Scroll.add(vp)
         vp.show()
-        self.book_list = Gtk.ListBox()
-        vp.add(self.book_list)
+        self.clamp = Handy.Clamp()
+        self.clamp.set_property("can_focus", False)
+        self.clamp.set_property("margin-bottom", 8)
+        self.clamp.set_property("margin-start", 8)
+        self.clamp.set_property("margin-end", 8)
+        self.clamp.set_property("margin-top", 8)
+        self.clamp.set_property("expand", True)
+        self.clamp.set_property("maximum-size", 400)
+        self.clamp.set_property("tightening-threshold", 300)
+        self.clamp.show()
+        vp.add(self.clamp)
+        self.book_list = Handy.PreferencesGroup()
+
+
+        self.book_list.set_property("expand", True)
+        self.book_list.set_property("can_focus", False)
+        self.clamp.add(self.book_list)
         self.book_list.show()
         yaml_file_name = os.path.join(pkgdatadir, "test.yaml")
         print(yaml_file_name)
@@ -65,9 +79,10 @@ class L4tInstallGuiWindow(Gtk.ApplicationWindow):
             objects = genMenu(obj)
             if isinstance(objects, list):
                 for item in objects:
-                    self.book_list.add(item.get_gtk())
+                    print(item)
+                    self.book_list.add(toGUI(item))
             elif isinstance(objects, menuGroup):
-                self.book_list.add(objects.get_gtk())
+                self.book_list.add(toGUI(objects))
 
 
     def show_page(self, button, page, book, chapter):

@@ -18,6 +18,10 @@ def genMenu(obj):
         if "title" in obj:
             return menuGroup(title=obj["title"], items=items)
     elif obj["type"] == "item":
-        return menuItem(obj["title"], obj["commands"])
+
+        if "subtitle" in obj and "title" in obj:
+            return menuItem(title=obj["title"], subtitle=obj["subtitle"], commands=obj["commands"])
+        else:
+            return menuItem(title=obj["title"], commands=obj["commands"])
     else:
         print("lost")

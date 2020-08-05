@@ -40,6 +40,9 @@ l4t_install_gui_sources = [
   'MenuGroup.py',
   'MenuItem.py',
   'GenMenu.py',
+  'GUIMenuGroup.py',
+  'GUIMenuItem.py',
+  'GUIMenuPart.py',
 ]
 
 install_data(l4t_install_gui_sources, install_dir: moduledir)

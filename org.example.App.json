@@ -23,32 +23,31 @@
     ],
     "modules" : [
         {
-            "name": "libhandy",
-            "buildsystem": "meson",
-            "builddir": true,
-            "config-opts": [
+            "name" : "libhandy",
+            "buildsystem" : "meson",
+            "builddir" : true,
+            "config-opts" : [
                 "-Dglade_catalog=disabled"
             ],
-            "sources": [
+            "sources" : [
                 {
-                    "type": "git",
-                    "url": "https://source.puri.sm/Librem5/libhandy.git",
-                    "commit":"7a193d7692c9c76a1a94f17c4d30b585f77d177c"
+                    "type" : "git",
+                    "url" : "https://gitlab.gnome.org/GNOME/libhandy.git"
                 }
             ]
         },
         {
-            "name": "espeak",
-            "sources": [
+            "name" : "espeak",
+            "sources" : [
                 {
-                    "type": "git",
-                    "url": "https://github.com/yaml/pyyaml",
-                    "commit": "538b5c93f7d5dee40322893c1e524e94a4f8bbde"
+                    "type" : "git",
+                    "url" : "https://github.com/yaml/pyyaml",
+                    "commit" : "538b5c93f7d5dee40322893c1e524e94a4f8bbde"
                 }
             ],
-            "buildsystem": "simple",
-            "build-commands": [
-            	"pip3 install --prefix=/app --no-deps ."
+            "buildsystem" : "simple",
+            "build-commands" : [
+                "pip3 install --prefix=/app --no-deps ."
             ]
         },
         {
@@ -62,5 +61,10 @@
                 }
             ]
         }
-    ]
+    ],
+    "build-options" : {
+        "env" : {
+            "GTK_DEBUG" : "interactive"
+        }
+    }
 }
