@@ -4,6 +4,8 @@ gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, GdkPixbuf
 gi.require_version('Handy', '1')
 from gi.repository import Handy
+import os
+from .config import pkgdatadir
 
 class guiMenuItem(Handy.ActionRow):
     checkmark = Gtk.Image()
@@ -17,7 +19,7 @@ class guiMenuItem(Handy.ActionRow):
 
         if self.icon_path is not None:
             pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(
-                    filename=self.icon_path,
+                    filename=os.path.join(pkgdatadir,self.icon_path),
                     width=32,
                     height=32,
                     preserve_aspect_ratio=True)
@@ -41,12 +43,9 @@ class guiMenuItem(Handy.ActionRow):
             self.run_command)
 
         if self.icon_path is not None:
-            self.add(
-                    self.icon)
-        self.add(
-                button)
-        self.add(
-                checkmark)
+            self.add_prefix(self.icon)
+        self.add(button)
+        self.add(checkmark)
         self.set_can_focus(False)
         self.set_property("title", itemIn.title)
         self.set_property("subtitle", itemIn.subtitle)

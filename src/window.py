@@ -73,13 +73,11 @@ class L4tInstallGuiWindow(Gtk.ApplicationWindow):
         self.clamp.add(self.book_list)
         self.book_list.show()
         yaml_file_name = os.path.join(pkgdatadir, "test.yaml")
-        print(yaml_file_name)
         with open(yaml_file_name) as file:
             obj = yaml.load(file, Loader=yaml.FullLoader)
             objects = genMenu(obj)
             if isinstance(objects, list):
                 for item in objects:
-                    print(item)
                     self.book_list.add(toGUI(item))
             elif isinstance(objects, menuGroup):
                 self.book_list.add(toGUI(objects))
