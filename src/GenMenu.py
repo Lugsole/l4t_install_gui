@@ -13,15 +13,22 @@ def genMenu(obj):
         items = []
         for item in obj["subs"]:
             items.append(genMenu(item))
-        if "subtitle" in obj and "title" in obj:
-            return menuGroup(title=obj["title"], subtitle=obj["subtitle"], items=items)
+        returning_item = menuGroup(items=items)
         if "title" in obj:
-            return menuGroup(title=obj["title"], items=items)
+            returning_item = menuGroup(title=obj["title"], items=items)
+        if "subtitle" in obj:
+            returning_item.set_subtitle(obj["subtitle"])
+        if "icon" in obj:
+            returning_item.set_icon(obj["icon"])
+        return returning_item
     elif obj["type"] == "item":
-
-        if "subtitle" in obj and "title" in obj:
-            return menuItem(title=obj["title"], subtitle=obj["subtitle"], commands=obj["commands"])
-        else:
-            return menuItem(title=obj["title"], commands=obj["commands"])
+        returning_item = menuItem(commands=obj["commands"])
+        if "title" in obj:
+            returning_item = menuItem(title=obj["title"], commands=obj["commands"])
+        if "subtitle" in obj:
+            returning_item.set_subtitle(obj["subtitle"])
+        if "icon" in obj:
+            returning_item.set_icon(obj["icon"])
+        return returning_item
     else:
         print("lost")

@@ -17,7 +17,7 @@ class guiMenuItem(Handy.ActionRow):
 
         if self.icon_path is not None:
             pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(
-                    filename="test.png",
+                    filename=self.icon_path,
                     width=32,
                     height=32,
                     preserve_aspect_ratio=True)

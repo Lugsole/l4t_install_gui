@@ -83,6 +83,7 @@ class L4tInstallGuiWindow(Gtk.ApplicationWindow):
                     self.book_list.add(toGUI(item))
             elif isinstance(objects, menuGroup):
                 self.book_list.add(toGUI(objects))
+        self.maximize()
 
 
     def show_page(self, button, page, book, chapter):

@@ -10,12 +10,18 @@ class menuItem:
         self.icon = icon
     def get_title(self):
         return self.title
-    def get_icon(self):
-        return self.icon
     def run_command(self, _):
         for command in self.commands:
             comm = shlex.split(command)
             print("running",comm)
             subprocess.run(comm)
+    def get_subtitle(self):
+        return self.subtitle
+    def set_subtitle(self, subtitle):
+        self.subtitle = subtitle
+    def get_icon(self):
+        return self.icon
+    def set_icon(self, icon):
+        self.icon = icon
 
     

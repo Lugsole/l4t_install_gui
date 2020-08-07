@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=l4t_install_gui
+Icon=l4t_icon
 Exec=l4t_install_gui
 Terminal=false
 Type=Application

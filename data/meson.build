@@ -45,3 +45,7 @@ pkgdatadir = join_paths(get_option('prefix'), get_option('datadir'), meson.proje
 install_data('test.yaml',
   install_dir: pkgdatadir
 )
+
+install_data('l4t_icon.png',
+  install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', 'scalable', 'apps'))
+
