@@ -11,10 +11,13 @@ class menuItem:
     def get_title(self):
         return self.title
     def run_command(self, _):
-        for command in self.commands:
-            comm = shlex.split(command)
-            print("running",comm)
-            subprocess.run(comm)
+        try:
+            for command in self.commands:
+                comm = shlex.split(command)
+                print("running",comm)
+                subprocess.run(comm, check=True)
+        except subprocess.CalledProcessError:
+            print("bad exit code")
     def get_subtitle(self):
         return self.subtitle
     def set_subtitle(self, subtitle):

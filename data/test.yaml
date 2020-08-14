@@ -11,18 +11,18 @@
       commands:
         - ls /
 - title: Install Retroarch Cores 
-  Subtitle: I dunno
+  subtitle: I dunno
   type: item
   commands: 
     - pkexec add-apt-repository ppa:libretro/testing
     - pkexec apt-get update
     - pkexec apt-get install libretro*
 - title: Overclock Test
-  Subtitle: Overclock to different frequences (Needed for better emulation)
+  subtitle: Overclock to different frequences (Needed for better emulation)
   type: item
   commands: 
-    - echo 1 | sudo tee /sys/kernel/tegra_cpufreq/overclock
-    - echo 2091000  | sudo tee /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq        
+    - echo 1 | pkexec tee /sys/kernel/tegra_cpufreq/overclock
+    - echo 2091000  | pkexec tee /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq
 - title: Power Managment
   subtitle: Shutdown and restart
   type: group
@@ -56,11 +56,66 @@
     - title: Config
       type: item
       commands:
-        - echo "Not implemented yet"
+        - echo TODO
 - title: Moon Lite
+  subtitle: Gamstream games from your PC as long as it has an Nvidia GPU!
   type: item
   commands:
     - echo "deb https://dl.bintray.com/moonlight-stream/moonlight-l4t bionic main" | pkexec tee /etc/apt/sources.list.d/moonlight-l4t.list
     - pkexec apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 379CE192D401AB61
     - pkexec apt-get update
     - pkexec apt install moonlight-qt
+- title: Citra
+  subtitle: 3DS emulator, don't expect perfect performance
+  type: group
+  subs:
+    - title: Install
+      type: item
+      commands:
+        - pkexec apt update -y
+        - pkexec apt-get install libsdl2-2.0-0 libsdl2-dev qtbase5-dev libqt5opengl5-dev qtmultimedia5-dev libfdk-aac-dev build-essential cmake ffmpeg libswscale-dev libavdevice57 libavformat-dev libavcodec-dev libavdevice-dev -y
+        - cd /tmp
+        - git clone --recursive https://github.com/citra-emu/citra
+        - cd citra
+        - mkdir build
+        - cd build
+        - cmake .. -DCMAKE_BUILD_TYPE=Release
+        - make -j$(nproc)
+        - pkexec make install
+        - rm /tmp/citra
+- title: FlightGear
+  subtitle: Free, open source flight simulator (3 GB DOWNLOAD)
+  type: group
+  subs:
+    - title: Install
+      type: item
+      commands:
+        - sudo apt install software-properties-common
+        - echo "Making sure the FlightGear PPA is installed..."
+        - sudo add-apt-repository ppa:saiarcot895/flightgear
+        - sudo apt-get update
+        - sudo apt install flightgear
+- title: CSE2
+  subtitle: An enhanced version of Cave Story. 60 FPS and other soundtracks support
+  type: group
+  subs:
+    - title: Install
+      type: item
+      commands:
+        - echo TODO
+- title: SRB2
+  subtitle: A 3D open-source Sonic the Hedgehog fangame built using a modified version of Doom
+  type: group
+  subs:
+    - title: Install
+      type: item
+      commands:
+        - echo TODO
+- title: RetroPie
+  subtitle: Powerful frontend for both emulators and native programs alike
+  type: group
+  subs:
+    - title: Install
+      type: item
+      commands:
+        - echo TODO

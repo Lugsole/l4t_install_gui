@@ -24,11 +24,9 @@ class guiMenuItem(Handy.ActionRow):
                     height=32,
                     preserve_aspect_ratio=True)
             self.icon = Gtk.Image.new_from_pixbuf(pixbuf)
-            #icon = Gtk.Image.new_from_file("test.png")
             self.icon.set_pixel_size(1)
             self.icon.show()
             self.icon.set_can_focus(False)
-        checkmark = Gtk.Image()
         checkmark= Gtk.Image.new_from_icon_name("emblem-ok-symbolic",Gtk.IconSize.MENU)
         checkmark.set_can_focus(False)
 

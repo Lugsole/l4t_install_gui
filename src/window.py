@@ -61,7 +61,7 @@ class L4tInstallGuiWindow(Gtk.ApplicationWindow):
         self.clamp.set_property("margin-end", 8)
         self.clamp.set_property("margin-top", 8)
         self.clamp.set_property("expand", True)
-        self.clamp.set_property("maximum-size", 400)
+        self.clamp.set_property("maximum-size", 600)
         self.clamp.set_property("tightening-threshold", 300)
         self.clamp.show()
         vp.add(self.clamp)
