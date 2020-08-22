@@ -22,7 +22,7 @@ sudo apt get install -y gtk-doc-tools libgirepository1.0-dev libgladeui-dev libg
 
 sed 's/3.24.1/3.22.30/g' -i src/meson.build
 
-meson --prefix /usr/local . _build
+meson --prefix /usr . _build
 ninja -C _build/
 ninja -C _build/ install
 ```
