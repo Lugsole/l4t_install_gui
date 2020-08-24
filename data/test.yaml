@@ -95,3 +95,11 @@
         - sudo add-apt-repository ppa:saiarcot895/flightgear
         - sudo apt-get update
         - sudo apt install flightgear
+- title: RetroPie
+  subtitle: Powerful frontend for both emulators and native programs alike
+  type: group
+  subs:
+    - title: Install All
+      type: item
+      commands:
+        - sudo -S curl -L https://raw.githubusercontent.com/theofficialgman/RetroPie-Setup/master/auto_install.sh | bash
