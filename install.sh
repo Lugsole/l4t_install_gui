@@ -18,7 +18,7 @@ meson --prefix /usr . _build
 echo "building libhandy"
 ninja -C _build/
 echo "installing libhandy"
-ninja -C _build/ install
+sudo ninja -C _build/ install
 echo "l4t_install_gui"
 cd /tmp
 echo "fetching l4t_install_gui source"
@@ -39,4 +39,4 @@ meson --prefix /usr/local . _build
 echo "building l4t_install_gui"
 ninja -C _build/
 echo "installing l4t_install_gui"
-ninja -C _build/ install
+sudo ninja -C _build/ install
