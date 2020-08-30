@@ -22,7 +22,7 @@ sudo ninja -C _build/ install
 echo "l4t_install_gui"
 cd /tmp
 echo "fetching l4t_install_gui source"
-wget https://github.com/Lugsole/l4t_install_gui/archive/master.zip -O l4t_install_gui.zip
+wget https://github.com/Lugsole/l4t_install_gui/archive/master.zip -O l4t_install_gui-master.zip
 echo "extracting l4t_install_gui source"
 unzip l4t_install_gui-master.zip
 echo "moving l4t_install_gui source"
