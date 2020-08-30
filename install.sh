@@ -8,7 +8,7 @@ echo "moving libhandy source"
 cd libhandy-master
 echo last sucesfull commit test was: d22356ef5f0cc6c6080896ae5611677d59849f51
 echo "installing libhandy dependencies"
-sudo apt install -y gtk-doc-tools libgirepository1.0-dev libgladeui-dev libglib2.0-doc libgnome-desktop-3-dev libgtk-3-doc libgtk-3-dev libxml2-utils pkg-config valac cmake gtk+-3.0-dev
+sudo apt install -y gtk-doc-tools libgirepository1.0-dev libgladeui-dev libglib2.0-doc libgnome-desktop-3-dev libgtk-3-doc libgtk-3-dev libxml2-utils pkg-config valac cmake gtk+-3.0-dev python3-pip
 echo "installing l4t_install_gui pip dependencies 2"
 pip3 install meson
 PATH=$HOME/.local/bin:$PATH
