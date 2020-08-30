@@ -11,6 +11,7 @@ echo "installing libhandy dependencies"
 sudo apt install -y gtk-doc-tools libgirepository1.0-dev libgladeui-dev libglib2.0-doc libgnome-desktop-3-dev libgtk-3-doc libgtk-3-dev libxml2-utils pkg-config valac cmake gtk+-3.0-dev
 echo "installing l4t_install_gui pip dependencies 2"
 pip3 install meson
+PATH=$HOME/.local/bin:$PATH
 echo "installing changing libhandy dependencies"
 sed 's/3.24.1/3.22.30/g' -i src/meson.build
 
